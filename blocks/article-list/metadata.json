@@ -1,0 +1,58 @@
+{
+  "variantName": "article-list",
+  "baseBlock": "article-list",
+  "version": "1.0.0",
+  "created": "2026-08-10T09:23:00.000Z",
+  "custom": true,
+  "dynamic": true,
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en/magazine.html",
+    "originPage": "magazine landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "dynamic-article-listing",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "config rows -> dynamic grid of (image + title link + description) cards",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "dataSource": {
+    "source": "/query-index.json",
+    "filter": "path startsWith config.path (default /magazine/)",
+    "sort": "config.sort field (default date), config.sortDirection (default desc)",
+    "limit": "config.limit (default 12; 0/blank = unlimited)"
+  },
+  "configOptions": [
+    { "key": "path", "default": "/magazine/", "description": "Path prefix filter." },
+    { "key": "limit", "default": "12", "description": "Max cards; 0/blank = unlimited." },
+    { "key": "sort", "default": "date", "description": "Query-index field to sort by." },
+    { "key": "sortDirection", "default": "desc", "description": "'desc' (newest first) or 'asc'." },
+    { "key": "source", "default": "/query-index.json", "description": "Query-index path/URL to fetch." }
+  ],
+  "reuseGuidance": {
+    "suitableFor": [
+      "magazine/blog/news listing pages",
+      "any page that should auto-list content by path prefix",
+      "'latest articles' / 'all articles' sections"
+    ],
+    "notSuitableFor": [
+      "hand-curated static card sets",
+      "layouts requiring per-card authored ordering or bespoke copy"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/magazine", "/us/en"],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-10T09:31:00.000Z"
+  },
+  "notes": [
+    "Not a variant of any vanilla block. Bespoke self-contained block following Block Collection card patterns + a query-index fetch.",
+    "Handles missing/failed query-index gracefully (empty state). Shows a loading state while fetching. Images rendered via createOptimizedPicture with alt from the article title.",
+    "DA project: authored as a document table. Block name row = 'Article List'; optional key/value config rows follow."
+  ]
+}

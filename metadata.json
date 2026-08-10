@@ -1,0 +1,26 @@
+{
+  "total": 3,
+  "offset": 0,
+  "limit": 3,
+  "data": [
+    {
+      "URL": "/**",
+      "og:site_name": "WKND Adventures",
+      "twitter:card": "summary_large_image",
+      "og:type": "website"
+    },
+    {
+      "URL": "/magazine/**",
+      "og:type": "article",
+      "twitter:card": "summary_large_image",
+      "Section": "Magazine",
+      "Template": "article"
+    },
+    {
+      "URL": "/magazine",
+      "og:type": "website",
+      "Template": "magazine-landing"
+    }
+  ],
+  ":type": "sheet"
+}

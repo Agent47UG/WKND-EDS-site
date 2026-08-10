@@ -1,0 +1,76 @@
+/*
+ * columns-featured
+ * Featured-article teaser variant of the columns block.
+ * Large image beside a text column (eyebrow + title + description + CTA)
+ * on a light-grey card panel. Mobile-first; image stacks above text and
+ * moves beside it from 900px up.
+ */
+
+.columns-featured > div {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+}
+
+.columns-featured img {
+  width: 100%;
+}
+
+.columns-featured > div > div {
+  order: 1;
+  padding: 24px;
+}
+
+.columns-featured > div > .columns-featured-img-col {
+  order: 0;
+  padding: 0;
+}
+
+.columns-featured > div > .columns-featured-img-col img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text treatment: eyebrow, serif title, CTA button */
+.columns-featured > div > div > p:first-child {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.columns-featured > div > div h2 {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family, Georgia, 'Times New Roman', serif);
+}
+
+.columns-featured > div > div .button-container a,
+.columns-featured > div > div a.button {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 24px;
+  background-color: var(--theme-color, #ffea00);
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+@media (width >= 900px) {
+  .columns-featured > div {
+    align-items: stretch;
+    flex-direction: unset;
+    gap: 0;
+  }
+
+  .columns-featured > div > div {
+    flex: 1;
+    order: unset;
+    padding: 48px;
+    align-self: center;
+  }
+
+  .columns-featured > div > .columns-featured-img-col {
+    padding: 0;
+  }
+}

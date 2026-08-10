@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://wknd.site/us/en.html"
+      ],
+      "coverageGaps": [],
+      "description": "WKND homepage: hero, featured article teaser (columns-featured), dynamic recent-articles (article-list), a default-content next-adventure teaser, and a curated adventures card grid (cards).",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            "main .carousel.cmp-carousel--hero"
+          ]
+        },
+        {
+          "name": "columns-featured",
+          "instances": [
+            "main .cmp-layout-container--fixed:nth-of-type(1) .teaser.cmp-teaser--featured"
+          ]
+        },
+        {
+          "name": "article-list",
+          "instances": [
+            "main .cmp-layout-container--fixed:nth-of-type(1) .image-list.list"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            "main .cmp-layout-container--fixed:nth-of-type(2) .image-list.list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "magazine-landing",
+      "urls": [
+        "https://wknd.site/us/en/magazine.html"
+      ],
+      "coverageGaps": [],
+      "description": "Magazine landing page: H1 title (default content), featured article teaser (columns-featured), the dynamic all-articles listing (article-list), and a members-only CTA (default content).",
+      "blocks": [
+        {
+          "name": "columns-featured",
+          "instances": [
+            "main .teaser.cmp-teaser--featured"
+          ]
+        },
+        {
+          "name": "article-list",
+          "instances": [
+            "main .image-list.list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "about",
+      "urls": [
+        "https://wknd.site/us/en/about-us.html"
+      ],
+      "coverageGaps": [],
+      "description": "About page: H1 and section intros (default content), plus contributor/guide profiles each rendered as a contributor block immediately followed by a social-links block.",
+      "blocks": [
+        {
+          "name": "contributor",
+          "instances": [
+            "main .cmp-experience-fragment--contributor"
+          ]
+        },
+        {
+          "name": "social-links",
+          "instances": [
+            "main .cmp-experience-fragment--contributor .cmp-buildingblock--btn-list"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "article",
+      "urls": [
+        "https://wknd.site/us/en/magazine/arctic-surfing.html",
+        "https://wknd.site/us/en/magazine/san-diego-surf.html",
+        "https://wknd.site/us/en/magazine/ski-touring.html",
+        "https://wknd.site/us/en/magazine/guide-la-skateparks.html",
+        "https://wknd.site/us/en/magazine/western-australia.html"
+      ],
+      "coverageGaps": [],
+      "description": "Magazine article page: breadcrumb, title + byline, rich article body (all default content), a contributor block (writer/photographer name, title) followed by a social-links block, and a related-articles list (cards, no images).",
+      "blocks": [
+        {
+          "name": "contributor",
+          "instances": [
+            "main .cmp-byline"
+          ]
+        },
+        {
+          "name": "social-links",
+          "instances": [
+            "main .cmp-buildingblock--btn-list"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            "aside .cmp-list, .cmp-list--related"
+          ]
+        }
+      ]
+    }
+  ]
+}

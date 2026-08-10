@@ -11,3 +11,8 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# Importer build artifacts (regenerated from *.js via aem-import-bundle)
+tools/importer/*.bundle.js
+tools/importer/reports/
+tools/importer/urls-*.txt
