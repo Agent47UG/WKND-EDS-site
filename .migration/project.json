@@ -1,0 +1,10 @@
+{
+  "type": "da",
+  "sites": {
+    "wknd-eds-site": {
+      "previewOrg": "agent47ug",
+      "previewSite": "wknd-eds-site",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

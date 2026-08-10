@@ -1,0 +1,16 @@
+{
+  "total": 8,
+  "offset": 0,
+  "limit": 8,
+  "data": [
+    { "Source": "/us/en", "Destination": "/" },
+    { "Source": "/us/en/magazine", "Destination": "/magazine" },
+    { "Source": "/us/en/about-us", "Destination": "/about" },
+    { "Source": "/us/en/magazine/arctic-surfing", "Destination": "/magazine/arctic-surfing" },
+    { "Source": "/us/en/magazine/san-diego-surf", "Destination": "/magazine/san-diego-surf" },
+    { "Source": "/us/en/magazine/ski-touring", "Destination": "/magazine/ski-touring" },
+    { "Source": "/us/en/magazine/guide-la-skateparks", "Destination": "/magazine/guide-la-skateparks" },
+    { "Source": "/us/en/magazine/western-australia", "Destination": "/magazine/western-australia" }
+  ],
+  ":type": "sheet"
+}

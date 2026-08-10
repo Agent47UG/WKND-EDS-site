@@ -1,0 +1,52 @@
+.social-links .social-links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-links .social-links-item {
+  margin: 0;
+  padding: 0;
+}
+
+.social-links .social-links-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.social-links .social-links-link:hover,
+.social-links .social-links-link:focus-visible {
+  color: var(--background-color);
+  background-color: var(--text-color);
+}
+
+.social-links .social-links-link:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.social-links .social-links-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentcolor;
+}
+
+/* Fallback for unknown platforms rendered as text */
+.social-links .social-links-link-text {
+  width: auto;
+  padding: 0 12px;
+  border-radius: 20px;
+  border: 1px solid currentcolor;
+  font-size: var(--body-font-size-xs);
+}

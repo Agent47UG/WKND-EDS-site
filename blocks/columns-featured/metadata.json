@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-featured",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-10T09:23:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en/magazine.html",
+    "originPage": "magazine landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "spacious",
+    "purpose": "featured-teaser",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + eyebrow + heading + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "featured article teasers",
+      "promotional side-by-side image+text panels",
+      "landing-page highlight blocks"
+    ],
+    "notSuitableFor": [
+      "multi-column equal text layouts",
+      "icon/feature grids",
+      "dynamic content listings"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/magazine", "/us/en"],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-10T09:31:00.000Z"
+  }
+}
