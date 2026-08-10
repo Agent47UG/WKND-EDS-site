@@ -46,6 +46,17 @@ export default function decorate(block) {
     [...contentRow.children].forEach((cell) => {
       [...cell.childNodes].forEach((node) => content.append(node));
     });
+
+    // Decorate a lone-link paragraph as the WKND yellow CTA button. Button
+    // auto-decoration skips block internals, so do it here explicitly.
+    content.querySelectorAll('p > a:only-child').forEach((a) => {
+      const p = a.parentElement;
+      if (p.textContent.trim() === a.textContent.trim()) {
+        a.classList.add('button');
+        p.classList.add('button-wrapper');
+      }
+    });
+
     block.append(content);
   }
 }
