@@ -1,20 +1,76 @@
+/* WKND footer — dark band, light text, brand + nav + Follow Us social */
 footer {
-  background-color: var(--light-color);
+  background-color: var(--footer-color);
+  color: var(--footer-text-color);
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--content-width);
+  padding: 48px 24px 32px;
 }
 
 footer .footer p {
-  margin: 0;
+  margin: 0 0 8px;
+  color: var(--footer-text-color);
+}
+
+/* footer links */
+footer .footer a:any-link {
+  color: var(--footer-text-color);
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* brand wordmark */
+footer .footer p:first-child a {
+  font-family: var(--body-font-family);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--background-color);
+}
+
+footer .footer ul {
+  list-style: none;
+  margin: 16px 0 24px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+footer .footer ul li {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* "Follow Us" heading */
+footer .footer h4 {
+  margin: 24px 0 12px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--background-color);
+}
+
+/* copyright / attribution — muted */
+footer .footer p:last-child {
+  margin-top: 16px;
+  color: #a5a5a5;
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 56px 32px 32px;
   }
 }

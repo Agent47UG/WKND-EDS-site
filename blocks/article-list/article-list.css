@@ -10,7 +10,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 32px;
 }
 
 .article-list .article-list-card {
@@ -25,39 +25,46 @@
 
 .article-list .article-list-card-image img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
 }
 
 .article-list .article-list-card-body {
-  padding: 12px 0;
+  padding: 16px 0 0;
 }
 
 .article-list .article-list-card-body h3 {
   margin: 0 0 8px;
-  font-size: var(--heading-font-size-s, 1.1rem);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
 }
 
 .article-list .article-list-card-title {
-  color: inherit;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 .article-list .article-list-card-title:hover,
 .article-list .article-list-card-title:focus {
-  text-decoration: underline;
+  color: var(--dark-color);
+  text-decoration: none;
 }
 
 .article-list .article-list-card-description {
   margin: 0;
-  color: #4a4a4a;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
 }
 
 .article-list .article-list-status {
   margin: 0;
   padding: 24px 0;
-  color: #6a6a6a;
+  color: var(--dark-color);
   font-style: italic;
 }
 

@@ -11,61 +11,66 @@
  */
 
 :root {
-  /* colors */
+  /* colors — WKND palette */
   --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --light-color: #f4f4f4;
+  --dark-color: #696969;
+  --text-color: #202020;
+  --footer-color: #202020;
+  --footer-text-color: #ebebeb;
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  /* WKND yellow accent */
+  --accent-color: #ffea00;
+  --accent-text-color: #202020;
+  --link-color: #0045ff;
+  --link-hover-color: #202020;
+
+  /* fonts — WKND uses Asar (serif) headings + Source Sans (body) */
+  --body-font-family: 'source sans 3', 'source-sans-fallback', 'Helvetica Neue', helvetica, arial, sans-serif;
+  --heading-font-family: asar, 'asar-fallback', georgia, 'Times New Roman', times, serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* heading sizes — serif display scale */
+  --heading-font-size-xxl: 40px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-l: 30px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
+
+  /* layout widths */
+  --content-width: 1200px;
+  --article-width: 800px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 88px;
 }
 
-/* fallback fonts */
+/* fallback fonts — matched metrics to reduce CLS */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: asar-fallback;
+  size-adjust: 106%;
+  src: local('Georgia');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
+  font-family: source-sans-fallback;
+  size-adjust: 97%;
   src: local('Arial');
 }
 
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
+    /* heading sizes step up slightly on desktop */
+    --heading-font-size-xxl: 44px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 32px;
+    --heading-font-size-m: 26px;
+    --heading-font-size-s: 22px;
     --heading-font-size-xs: 18px;
   }
 }
@@ -107,8 +112,8 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 400;
+  line-height: 1.35;
   scroll-margin: 40px;
 }
 
@@ -179,16 +184,29 @@ button.button {
   max-width: 100%;
   margin: 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
+  border-radius: 0;
+  padding: 0.75em 1.75em;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
   line-height: 1.25;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Default & primary CTA — WKND yellow, square, uppercase */
+a.button:any-link,
+button.button,
+a.button.primary,
+button.button.primary {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
 }
 
 a.button[aria-disabled="true"],
@@ -197,20 +215,17 @@ button.button:disabled {
   pointer-events: none;
 }
 
-a.button.primary,
-button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
-}
-
+a.button:any-link:hover,
+a.button:any-link:focus-visible,
+button.button:hover,
+button.button:focus-visible,
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--accent-color);
 }
 
 a.button.primary[aria-disabled="true"],
@@ -297,11 +312,11 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 48px 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--content-width);
   margin: auto;
   padding: 0 24px;
 }
@@ -311,6 +326,10 @@ main > .section:first-of-type {
 }
 
 @media (width >= 900px) {
+  main > .section {
+    margin: 64px 0;
+  }
+
   main > .section > div {
     padding: 0 32px;
   }
@@ -321,5 +340,14 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: 48px 0;
+}
+
+/*
+ * Article pages: constrain all sections (prose, contributor, related list) to a
+ * comfortable reading measure like the WKND reference (~800px). EDS adds the
+ * page's template name as a body class, so `body.article` scopes this cleanly.
+ */
+body.article main > .section > div {
+  max-width: var(--article-width);
 }
