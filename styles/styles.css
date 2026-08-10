@@ -344,11 +344,10 @@ main .section.highlight {
 }
 
 /*
- * Article pages: constrain default-content (prose) to a comfortable
- * reading measure like the WKND reference (~800px), while blocks such as
- * article-list/cards keep the full content width.
+ * Article pages: constrain all sections (prose, contributor, related list) to a
+ * comfortable reading measure like the WKND reference (~800px). EDS adds the
+ * page's template name as a body class, so `body.article` scopes this cleanly.
  */
-main > .section.article-body > div,
-body[data-template="article"] main > .section > .default-content-wrapper {
+body.article main > .section > div {
   max-width: var(--article-width);
 }
