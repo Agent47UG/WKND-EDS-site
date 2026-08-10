@@ -50,3 +50,24 @@
   border: 1px solid currentcolor;
   font-size: var(--body-font-size-xs);
 }
+
+/*
+ * Footer context: the footer is a dark band, so social icons render light and
+ * invert to the WKND yellow on hover/focus (instead of the default dark chip).
+ * These contextual overrides intentionally follow the base rules (source order
+ * matters over specificity here).
+ */
+/* stylelint-disable-next-line no-descending-specificity */
+footer .social-links .social-links-link {
+  color: var(--footer-text-color);
+}
+
+footer .social-links .social-links-link:hover,
+footer .social-links .social-links-link:focus-visible {
+  color: var(--accent-text-color);
+  background-color: var(--accent-color);
+}
+
+footer .social-links .social-links-list {
+  gap: 16px;
+}

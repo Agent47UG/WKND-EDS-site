@@ -25,7 +25,9 @@
 
 .contributor .contributor-name {
   margin: 0;
-  font-size: var(--heading-font-size-s);
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: var(--heading-font-size-m);
   line-height: 1.2;
 }
 
@@ -33,6 +35,9 @@
   margin: 0;
   color: var(--dark-color);
   font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 @media (width >= 900px) {

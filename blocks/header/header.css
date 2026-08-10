@@ -4,6 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 header nav {
@@ -139,18 +140,31 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* brand */
+/* brand — WKND wordmark: bold, uppercase, wide tracking */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  flex-basis: auto;
+  font-size: 28px;
   line-height: 1;
+}
+
+header nav .nav-brand a {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-color);
 }
 
 header nav .nav-brand img {
   width: 128px;
   height: auto;
+}
+
+@media (width >= 900px) {
+  header .nav-brand {
+    font-size: 32px;
+  }
 }
 
 /* sections */
@@ -170,11 +184,22 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+header nav .nav-sections a:any-link {
+  color: var(--text-color);
+}
+
+header nav .nav-sections a:hover {
+  color: var(--dark-color);
+  text-decoration: none;
 }
 
 header nav .nav-sections ul > li > ul {
