@@ -31,6 +31,7 @@ export default {
     const navUl = document.createElement('ul');
     [
       ['Magazine', '/magazine'],
+      ['Adventures', '/adventures'],
       ['About', '/about'],
     ].forEach(([label, href]) => {
       const li = document.createElement('li');

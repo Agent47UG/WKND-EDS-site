@@ -1,0 +1,52 @@
+/*
+ * adventure-info
+ * Compact grid of small info cards for an adventure's trip facts.
+ * Mobile-first; scoped to the .adventure-info block.
+ */
+
+.adventure-info .adventure-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.adventure-info .adventure-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background-color: var(--light-color);
+  border-top: 3px solid var(--accent-color);
+}
+
+.adventure-info .adventure-info-card dt {
+  margin: 0;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.adventure-info .adventure-info-card dd {
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: 1.2;
+}
+
+@media (width >= 600px) {
+  .adventure-info .adventure-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .adventure-info .adventure-info-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+}

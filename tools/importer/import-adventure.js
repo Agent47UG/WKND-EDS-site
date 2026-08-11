@@ -9,6 +9,7 @@ import cleanupTransformer from './transformers/wknd-cleanup.js';
 import sectionsTransformer from './transformers/wknd-sections.js';
 import linksTransformer from './transformers/wknd-links.js';
 import enrichAdventureMetadata from './lib/adventure-metadata.js';
+import injectAdventureInfo from './lib/adventure-info.js';
 
 // PARSER REGISTRY
 const parsers = {
@@ -110,6 +111,9 @@ export default {
     });
 
     executeTransformers('afterTransform', main, payload);
+
+    // Inject the adventure-info block (trip facts as small cards) after the H1.
+    injectAdventureInfo(main, document, params);
 
     const hr = document.createElement('hr');
     main.appendChild(hr);
