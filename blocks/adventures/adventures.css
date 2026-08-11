@@ -1,0 +1,149 @@
+/*
+ * adventures
+ * Query-index-driven grid of adventure cards with category filter chips.
+ * Mobile-first; scoped entirely to the .adventures block. Mirrors the WKND
+ * card treatment used by article-list.
+ */
+
+/* filter toolbar */
+.adventures .adventures-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 32px;
+}
+
+.adventures .adventures-filter {
+  min-height: 44px; /* accessible tap target */
+  padding: 8px 18px;
+  border: 1px solid var(--text-color);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.adventures .adventures-filter:hover {
+  background-color: var(--text-color);
+  color: var(--accent-color);
+}
+
+.adventures .adventures-filter[aria-pressed="true"] {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--accent-text-color);
+}
+
+.adventures .adventures-filter:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+/* card grid */
+.adventures .adventures-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.adventures .adventures-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.adventures .adventures-card[hidden] {
+  display: none;
+}
+
+.adventures .adventures-card-image {
+  display: block;
+  line-height: 0;
+}
+
+.adventures .adventures-card-image img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.adventures .adventures-card-body {
+  padding: 16px 0 0;
+}
+
+.adventures .adventures-card-category {
+  margin: 0 0 6px;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.adventures .adventures-card-body h3 {
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.adventures .adventures-card-title {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.adventures .adventures-card-title:hover,
+.adventures .adventures-card-title:focus {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.adventures .adventures-card-image:focus-visible,
+.adventures .adventures-card-title:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 3px;
+}
+
+.adventures .adventures-card-description {
+  margin: 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.adventures .adventures-status {
+  margin: 0;
+  padding: 24px 0;
+  color: var(--dark-color);
+  font-style: italic;
+}
+
+@media (width >= 600px) {
+  .adventures .adventures-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .adventures .adventures-card-title {
+    min-height: 0;
+  }
+}
+
+@media (width >= 900px) {
+  .adventures .adventures-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
