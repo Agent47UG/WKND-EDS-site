@@ -52,12 +52,14 @@ footer .footer ul li {
   letter-spacing: 0.04em;
 }
 
-/* "Follow Us" heading */
-footer .footer h4 {
+/* "Follow Us" heading — rendered as h2 for correct heading order, but keeps
+   the small uppercase footer styling (not the large serif global h2). */
+footer .footer h2 {
   margin: 24px 0 12px;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-xs);
   font-weight: 700;
+  line-height: 1.3;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--background-color);
