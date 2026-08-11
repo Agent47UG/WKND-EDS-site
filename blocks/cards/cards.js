@@ -1,7 +1,13 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
+/*
+ * Cards block.
+ * Each row becomes a card with an image cell and a body cell (title + text).
+ * The whole card image is made clickable by wrapping it in a link that mirrors
+ * the card's title link, so users can click the image or the title.
+ */
+
 export default function decorate(block) {
-  /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
@@ -13,5 +19,24 @@ export default function decorate(block) {
     ul.append(li);
   });
   ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+
+  // Make the card image clickable using the card's own title link (if any).
+  ul.querySelectorAll('li').forEach((li) => {
+    const imageCell = li.querySelector('.cards-card-image');
+    const titleLink = li.querySelector('.cards-card-body a[href]');
+    if (imageCell && titleLink && !imageCell.querySelector('a')) {
+      const link = document.createElement('a');
+      link.href = titleLink.href;
+      link.className = 'cards-card-image-link';
+      link.setAttribute('aria-hidden', 'true');
+      link.setAttribute('tabindex', '-1');
+      const picture = imageCell.querySelector('picture');
+      if (picture) {
+        link.append(picture);
+        imageCell.append(link);
+      }
+    }
+  });
+
   block.replaceChildren(ul);
 }
