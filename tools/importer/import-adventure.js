@@ -10,6 +10,7 @@ import sectionsTransformer from './transformers/wknd-sections.js';
 import linksTransformer from './transformers/wknd-links.js';
 import enrichAdventureMetadata from './lib/adventure-metadata.js';
 import injectAdventureInfo from './lib/adventure-info.js';
+import authorAdventureBody from './lib/adventure-body.js';
 
 // PARSER REGISTRY
 const parsers = {
@@ -114,6 +115,8 @@ export default {
 
     // Inject the adventure-info block (trip facts as small cards) after the H1.
     injectAdventureInfo(main, document, params);
+    // Author the body (Overview / Itinerary / What to Bring) from the reference.
+    authorAdventureBody(main, document, params);
 
     const hr = document.createElement('hr');
     main.appendChild(hr);

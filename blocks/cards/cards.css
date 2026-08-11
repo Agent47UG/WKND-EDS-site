@@ -10,9 +10,21 @@
 
 .cards > ul > li {
   background-color: var(--background-color);
+  transition: transform 0.2s ease;
 }
 
+.cards > ul > li:hover {
+  transform: translateY(-4px);
+}
+
+/* clickable image */
 .cards .cards-card-image {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards .cards-card-image-link {
+  display: block;
   line-height: 0;
 }
 
@@ -20,6 +32,16 @@
   width: 100%;
   aspect-ratio: 3 / 2;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cards > ul > li:hover img {
+  transform: scale(1.05);
+}
+
+.cards .cards-card-image-link:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 3px;
 }
 
 .cards .cards-card-body {
@@ -40,11 +62,22 @@
 .cards .cards-card-body a:any-link {
   color: var(--text-color);
   text-decoration: none;
+  background-image: linear-gradient(var(--accent-color), var(--accent-color));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 3px;
+  transition: background-size 0.25s ease;
 }
 
-.cards .cards-card-body a:hover {
-  color: var(--dark-color);
-  text-decoration: none;
+.cards .cards-card-body a:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+.cards .cards-card-body a:hover,
+.cards > ul > li:hover .cards-card-body a {
+  color: var(--text-color);
+  background-size: 100% 3px;
 }
 
 .cards .cards-card-body p {
