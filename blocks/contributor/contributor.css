@@ -1,8 +1,18 @@
+/*
+ * contributor
+ * Author/photographer profile card: avatar, name (serif), role (uppercase).
+ * Centered card layout matching the WKND reference. Works both as an article
+ * byline and inside the About page contributor/guide grids.
+ */
+
 .contributor {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 16px 0;
+  gap: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  background-color: var(--light-color);
 }
 
 .contributor .contributor-avatar {
@@ -11,8 +21,8 @@
 }
 
 .contributor .contributor-avatar img {
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -20,7 +30,7 @@
 .contributor .contributor-details {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .contributor .contributor-name {
@@ -36,13 +46,22 @@
   color: var(--dark-color);
   font-size: var(--body-font-size-xs);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+/* embedded social-links block (folded in by contributor.js) */
+.contributor .contributor-social {
+  margin-top: 4px;
+}
+
+.contributor .contributor-social .social-links-list {
+  justify-content: center;
 }
 
 @media (width >= 900px) {
   .contributor .contributor-avatar img {
-    width: 80px;
-    height: 80px;
+    width: 112px;
+    height: 112px;
   }
 }
