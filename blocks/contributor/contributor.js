@@ -81,4 +81,21 @@ export default function decorate(block) {
 
     block.append(details);
   }
+
+  // Pull the immediately-following social-links block into this profile card so
+  // each contributor + its socials form a single element. This makes the About
+  // page grid reliable (one grid item per person) and keeps the article byline
+  // grouped. The social block may not be decorated yet, so move its wrapper and
+  // let its own decorator run in place.
+  const wrapper = block.closest('.contributor-wrapper') || block.parentElement;
+  const nextWrapper = wrapper && wrapper.nextElementSibling;
+  if (nextWrapper && nextWrapper.classList.contains('social-links-wrapper')) {
+    const social = nextWrapper.querySelector('.social-links') || nextWrapper;
+    const socialSlot = document.createElement('div');
+    socialSlot.className = 'contributor-social';
+    socialSlot.append(social);
+    block.append(socialSlot);
+    // remove the now-empty wrapper
+    if (!nextWrapper.children.length) nextWrapper.remove();
+  }
 }

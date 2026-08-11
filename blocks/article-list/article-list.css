@@ -44,6 +44,9 @@
 }
 
 .article-list .article-list-card-title {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* WCAG 2.5.5 tap target on mobile */
   color: var(--text-color);
   text-decoration: none;
 }
@@ -52,6 +55,19 @@
 .article-list .article-list-card-title:focus {
   color: var(--dark-color);
   text-decoration: none;
+}
+
+/* clear, visible keyboard focus on the image and title links */
+.article-list .article-list-card-image:focus-visible,
+.article-list .article-list-card-title:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 3px;
+}
+
+@media (width >= 900px) {
+  .article-list .article-list-card-title {
+    min-height: 0;
+  }
 }
 
 .article-list .article-list-card-description {

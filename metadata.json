@@ -1,25 +1,35 @@
 {
-  "total": 3,
+  "total": 4,
   "offset": 0,
-  "limit": 3,
+  "limit": 4,
   "data": [
     {
       "URL": "/**",
       "og:site_name": "WKND Adventures",
+      "og:type": "website",
       "twitter:card": "summary_large_image",
-      "og:type": "website"
+      "twitter:site": "@wknd",
+      "keywords": "WKND, adventure, travel, outdoors, surfing, skiing, magazine"
+    },
+    {
+      "URL": "/magazine",
+      "og:type": "website",
+      "Template": "magazine-landing",
+      "keywords": "WKND magazine, adventure stories, travel articles, outdoors"
     },
     {
       "URL": "/magazine/**",
       "og:type": "article",
       "twitter:card": "summary_large_image",
       "Section": "Magazine",
-      "Template": "article"
+      "Template": "article",
+      "keywords": "WKND magazine, adventure, travel, story"
     },
     {
-      "URL": "/magazine",
+      "URL": "/about",
       "og:type": "website",
-      "Template": "magazine-landing"
+      "Template": "about",
+      "keywords": "WKND, about, contributors, guides, team"
     }
   ],
   ":type": "sheet"
