@@ -61,6 +61,11 @@ export default function injectAdventureInfo(main, document, params) {
   const facts = INFO_BY_SLUG[slug];
   if (!facts || !facts.length) return;
 
+  // Remove the source's raw content-fragment trip panel so our clean
+  // adventure-info card block is the single source of these facts (avoids a
+  // duplicate list showing "900.0" etc.).
+  main.querySelectorAll('.contentfragment, .cmp-contentfragment').forEach((n) => n.remove());
+
   const cells = [['Adventure Info']];
   facts.forEach(([label, value]) => cells.push([label, value]));
   const block = WebImporter.Blocks.createBlock(document, { name: 'adventure-info', cells });
