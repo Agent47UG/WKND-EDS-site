@@ -359,7 +359,7 @@ body.article main > .section > div {
  * contributor.js has already folded each person's social-links block into its
  * contributor card, so every card is a single self-contained grid item.
  */
-body.about main > .section.contributor-container {
+main > .section.contributor-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -369,46 +369,47 @@ body.about main > .section.contributor-container {
   padding: 0 24px;
 }
 
-body.about main > .section.contributor-container > div {
+/* stylelint-disable-next-line no-descending-specificity */
+main > .section.contributor-container > div {
   max-width: none;
   margin: 0;
   padding: 0;
 }
 
 /* intro (heading + text) spans the full width and is centered */
-body.about main > .section.contributor-container > .default-content-wrapper {
+main > .section.contributor-container > .default-content-wrapper {
   grid-column: 1 / -1;
   text-align: center;
   margin-bottom: 8px;
 }
 
-body.about main > .section.contributor-container > .default-content-wrapper p {
+main > .section.contributor-container > .default-content-wrapper p {
   max-width: 640px;
   margin-inline: auto;
   color: var(--dark-color);
 }
 
 /* each profile card fills its grid cell; social row sits centered at the base */
-body.about main > .section.contributor-container > .contributor-wrapper .contributor {
+main > .section.contributor-container > .contributor-wrapper .contributor {
   height: 100%;
 }
 
-body.about main > .section.contributor-container .contributor-social {
+main > .section.contributor-container .contributor-social {
   margin-top: 4px;
 }
 
-body.about main > .section.contributor-container .contributor-social .social-links-list {
+main > .section.contributor-container .contributor-social .social-links-list {
   justify-content: center;
 }
 
 @media (width >= 600px) {
-  body.about main > .section.contributor-container {
+  main > .section.contributor-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (width >= 900px) {
-  body.about main > .section.contributor-container {
+  main > .section.contributor-container {
     grid-template-columns: repeat(4, 1fr);
     padding: 0 32px;
   }
