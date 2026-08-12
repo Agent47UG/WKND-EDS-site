@@ -108,6 +108,10 @@ function buildAutoBlocks(main) {
  * @param {HTMLElement} main The main container element
  */
 function decorateButtons(main) {
+  // The page's own main is attached to the document; nav/footer fragment mains
+  // are detached while being decorated. Only page content gets the "plain lone
+  // link → default button" treatment, so header/footer link lists are untouched.
+  const isPageMain = main.isConnected;
   main.querySelectorAll('p a[href]').forEach((a) => {
     a.title = a.title || a.textContent;
     const p = a.closest('p');
@@ -121,10 +125,14 @@ function decorateButtons(main) {
       if (new URL(a.href).href === new URL(text, window.location).href) return;
     } catch { /* continue */ }
 
-    // require authored formatting for buttonization
     const strong = a.closest('strong');
     const em = a.closest('em');
-    if (!strong && !em) return;
+
+    // A plain lone-link paragraph (no strong/em) becomes the default WKND yellow
+    // button — but ONLY in page content, never inside header/footer/nav fragments
+    // (whose markup those blocks decorate themselves). This lets default-content
+    // CTAs like "All Articles", "See Trip", "All Trips" match block CTAs.
+    if (!strong && !em && !isPageMain) return;
 
     p.className = 'button-wrapper';
     a.className = 'button';
@@ -135,7 +143,7 @@ function decorateButtons(main) {
     } else if (strong) {
       a.classList.add('primary');
       strong.replaceWith(a);
-    } else {
+    } else if (em) {
       a.classList.add('secondary');
       em.replaceWith(a);
     }
