@@ -353,6 +353,84 @@ body.article main > .section > div {
 }
 
 /*
+ * Article two-column layout (built by templates.js): article body + contributor
+ * on the left, related magazine stories as a vertical sidebar on the right.
+ * Single column on mobile; two columns from 900px up.
+ */
+body.article main > .article-layout {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+/* body sections inside the layout are already width-constrained; reset the
+   auto-centering so they fill the left column. */
+body.article main > .article-layout .article-main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+
+body.article main > .article-layout .article-main > .section {
+  margin: 32px 0;
+}
+
+body.article main > .article-layout .article-main > .section:first-child {
+  margin-top: 0;
+}
+
+/* center the contributor profile */
+body.article .contributor-container .contributor-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+body.article .contributor-container .contributor {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* related sidebar: vertical list of stories */
+body.article .article-related {
+  align-self: start;
+}
+
+body.article .article-related-title {
+  margin: 0 0 16px;
+  font-size: var(--heading-font-size-m);
+}
+
+body.article .article-related .cards > ul {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+body.article .article-related .cards > ul > li {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 20px;
+}
+
+body.article .article-related .cards > ul > li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+@media (width >= 900px) {
+  body.article main > .article-layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    padding: 0 32px;
+  }
+
+  body.article .article-related {
+    position: sticky;
+    top: 24px;
+  }
+}
+
+/*
  * About page: lay the contributor/guide profiles out as a responsive grid,
  * matching the WKND reference. Each section (`.contributor-container`) holds an
  * intro (default-content-wrapper) plus one `.contributor-wrapper` per person —
@@ -413,4 +491,70 @@ main > .section.contributor-container .contributor-social .social-links-list {
     grid-template-columns: repeat(4, 1fr);
     padding: 0 32px;
   }
+}
+
+/*
+ * Adventure detail tabs (built by templates.js): the Overview / Itinerary /
+ * What to Bring sections become tabbed panels below "Share this Adventure".
+ */
+body.adventure .adventure-tabs {
+  margin: 24px 0;
+}
+
+body.adventure .adventure-tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 2px solid #e6e6e6;
+  margin-bottom: 24px;
+}
+
+body.adventure .adventure-tab {
+  appearance: none;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  padding: 12px 20px;
+  min-height: 44px;
+  background: transparent;
+  color: var(--dark-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+body.adventure .adventure-tab:hover {
+  color: var(--text-color);
+}
+
+body.adventure .adventure-tab[aria-selected="true"] {
+  color: var(--text-color);
+  border-bottom-color: var(--accent-color);
+}
+
+body.adventure .adventure-tab:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: -3px;
+}
+
+body.adventure .adventure-tab-panel[hidden] {
+  display: none;
+}
+
+/* the panel's own h2 (Overview/Itinerary/What to Bring) is redundant with the
+   active tab label, so hide it inside the panel */
+body.adventure .adventure-tab-panel > h2:first-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

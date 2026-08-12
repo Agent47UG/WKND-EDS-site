@@ -197,6 +197,14 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadSections(main);
 
+  // template-specific enhancements (article two-column, adventure tabs)
+  try {
+    const { default: decorateTemplates } = await import('./templates.js');
+    decorateTemplates(main);
+  } catch (e) {
+    // non-fatal — page still renders without the enhancement
+  }
+
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
