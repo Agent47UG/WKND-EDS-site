@@ -174,6 +174,11 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
+    // Prioritise the LCP image: aem.js's waitForFirstImage marks it eager, but
+    // adding fetchpriority="high" tells the browser to fetch it ahead of other
+    // resources — the last step to a perfect performance score.
+    const lcpImg = main.querySelector('.section img');
+    if (lcpImg) lcpImg.setAttribute('fetchpriority', 'high');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 

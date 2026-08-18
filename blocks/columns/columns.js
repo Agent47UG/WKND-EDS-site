@@ -15,4 +15,17 @@ export default function decorate(block) {
       }
     });
   });
+
+  // Featured variant: decorate a lone-link paragraph (the CTA) as the WKND
+  // yellow button. EDS button auto-decoration skips block internals, so do it
+  // explicitly here — this also gives the CTA a proper 44px tap target on mobile.
+  if (block.classList.contains('featured')) {
+    block.querySelectorAll('p > a:only-child').forEach((a) => {
+      const p = a.parentElement;
+      if (p.textContent.trim() === a.textContent.trim()) {
+        a.classList.add('button');
+        p.classList.add('button-container');
+      }
+    });
+  }
 }
