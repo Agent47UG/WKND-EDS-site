@@ -68,7 +68,7 @@ footer .footer h2 {
 /* copyright / attribution — muted */
 footer .footer p:last-child {
   margin-top: 16px;
-  color: #a5a5a5;
+  color: var(--muted-color);
 }
 
 @media (width >= 900px) {

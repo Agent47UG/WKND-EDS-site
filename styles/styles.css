@@ -16,6 +16,8 @@
   --light-color: #f4f4f4;
   --dark-color: #696969;
   --text-color: #202020;
+  --border-color: #e6e6e6;
+  --muted-color: #a5a5a5;
   --footer-color: #202020;
   --footer-text-color: #ebebeb;
 
@@ -409,7 +411,7 @@ body.article .article-related .cards > ul {
 }
 
 body.article .article-related .cards > ul > li {
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 20px;
 }
 
@@ -505,7 +507,7 @@ body.adventure .adventure-tabs-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0;
-  border-bottom: 2px solid #e6e6e6;
+  border-bottom: 2px solid var(--border-color);
   margin-bottom: 24px;
 }
 

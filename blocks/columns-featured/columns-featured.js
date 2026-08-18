@@ -1,29 +1,15 @@
+import decorateColumns from '../columns/columns.js';
+
+/*
+ * Backward-compatibility shim.
+ *
+ * The featured teaser is now the "Columns (featured)" variant of the columns
+ * block (see blocks/columns). New content should author it as "Columns
+ * (featured)". This shim keeps already-published pages that reference the old
+ * `columns-featured` block name working: it maps the element onto the columns
+ * variant classes and delegates to the shared decorator.
+ */
 export default function decorate(block) {
-  const cols = [...block.firstElementChild.children];
-  block.classList.add(`columns-featured-${cols.length}-cols`);
-
-  // setup image columns
-  [...block.children].forEach((row) => {
-    [...row.children].forEach((col) => {
-      const pic = col.querySelector('picture');
-      if (pic) {
-        const picWrapper = pic.closest('div');
-        if (picWrapper && picWrapper.children.length === 1) {
-          // picture is only content in column
-          picWrapper.classList.add('columns-featured-img-col');
-        }
-      }
-    });
-  });
-
-  // Decorate a lone-link paragraph (the CTA) as the WKND yellow button. EDS
-  // button auto-decoration skips block internals, so do it explicitly here —
-  // this also gives the CTA a proper 44px tap target on mobile.
-  block.querySelectorAll('p > a:only-child').forEach((a) => {
-    const p = a.parentElement;
-    if (p.textContent.trim() === a.textContent.trim()) {
-      a.classList.add('button');
-      p.classList.add('button-container');
-    }
-  });
+  block.classList.add('columns', 'featured');
+  decorateColumns(block);
 }
